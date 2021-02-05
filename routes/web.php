@@ -20,3 +20,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/admin/addUser',[App\Http\Controllers\HomeController::class, 'addUser']);
+Route::post('/admin/addUser',[App\Http\Controllers\HomeController::class, 'saveUser']);
+
+Route::get('/admin/allUser',[App\Http\Controllers\HomeController::class, 'allUser']);
+Route::get('/admin/allMessage',[App\Http\Controllers\HomeController::class, 'allMessage']);
+
+
+
