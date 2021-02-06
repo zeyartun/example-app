@@ -28,5 +28,8 @@ Route::post('/admin/addUser',[App\Http\Controllers\HomeController::class, 'saveU
 Route::get('/admin/allUser',[App\Http\Controllers\HomeController::class, 'allUser']);
 Route::get('/admin/allMessage',[App\Http\Controllers\HomeController::class, 'allMessage']);
 
+Route::get('/admin/sendMessage',[App\Http\Controllers\HomeController::class, 'sendMessage']);
+
+
 
 

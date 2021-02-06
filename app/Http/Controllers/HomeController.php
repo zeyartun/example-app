@@ -40,5 +40,8 @@ class HomeController extends Controller
     public function allMessage(){
         return view('admin.allMessage');
     }
+    public function sendMessage(){
+        return view('admin.sendMessage');
+    }
 
 }

@@ -10,19 +10,19 @@
                     <div class="row">
                         <div class="col-12"><h3 class="text-center py-3">Welcome To Zeyar Office</h3></div>
                         <div class="col-3">
-                            <a class="btn btn-info p-5" href="/admin/addUser">Add New Officer</a>
+                            <a class="btn btn-info p-5" href="{{ url('/admin/addUser') }}">Add New Officer</a>
 
                         </div>
                         <div class="col-3">
-                            <a class="btn btn-warning p-5" href="/admin/allUser">See all Officer</a>
+                            <a class="btn btn-warning p-5" href="{{ url('/admin/allUser') }}">See all Officer</a>
 
                         </div>
                         <div class="col-3">
-                            <a class="btn btn-danger p-5" href="/admin/allMessage">See all Message</a>
+                            <a class="btn btn-danger p-5" href="{{ url('/admin/allMessage') }}">See all Message</a>
 
                         </div>
                         <div class="col-3">
-                            <a class="btn btn-success p-5" href="#">Add New Officer</a>
+                            <a class="btn btn-success p-5" href="{{ url('/admin/sendMessage') }}">Send Message</a>
 
                         </div>
                     </div>

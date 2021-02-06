@@ -11,26 +11,31 @@
                         <div class="col-12"><h3 class="text-center py-3">Welcome To Zeyar Office</h3></div>
                         <form action="">
                             <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                <label class="form-label">အမည်</label>
+                                <input type="text" class="form-control" id="letterId" placeholder="အမည်အမည်">
                               </div>
                               <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                <label  class="form-label">အီးမေးလ်</label>
+                                <input type="email" class="form-control" id="date" placeholder="အီးမေးလ်">
                               </div>
                               <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                <label class="form-label">လျှို့ဝှက်နံပါတ်</label>
+                                <input type="password" class="form-control" id="title" placeholder="လျှို့ဝှက်နံပါတ်">
                               </div>
-                              <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+
+                              <div class="dropdown mb-3">
+                                <select name="toUser" class="select mb-3 p-2 px-3">
+                                    <option selected>အဆင့်ရွေးပါ</option>
+                                    <option value="volvo">Admin</option>
+                                    <option value="fiat">Officer</option>
+
+                                  </select>
                               </div>
-                              <div class="mb-3">
-                                <label for="formFile" class="form-label">Default file input example</label>
-                                <input class="form-control" type="file" id="formFile">
-                              </div>
-                                  
+
+                              <div class="mb-3 text-end">
+                                 <input type="submit" class="btn btn-success" value="အသစ်ထည့်မည်">
+                            </div>
+
                         </form>                     
                     </div>
                 </div>
