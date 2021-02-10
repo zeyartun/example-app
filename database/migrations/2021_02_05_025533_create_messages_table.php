@@ -20,6 +20,8 @@ class CreateMessagesTable extends Migration
             $table->string('title');
             $table->string('detail');
             $table->string('referLetter');
+            $table->timestamps();
+
         });
     }
 

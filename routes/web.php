@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,16 +21,22 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
-Route::get('/admin/addUser',[App\Http\Controllers\HomeController::class, 'addUser']);
-Route::post('/admin/addUser',[App\Http\Controllers\HomeController::class, 'saveUser']);
+Route::group(['middleware' => 'auth','prefix' => 'admin'],function(){
+    Route::get('/addUser',[HomeController::class, 'addUser']);
+    Route::post('/saveUser',[HomeController::class, 'saveUser']);
 
-Route::get('/admin/allUser',[App\Http\Controllers\HomeController::class, 'allUser']);
-Route::get('/admin/allMessage',[App\Http\Controllers\HomeController::class, 'allMessage']);
+    Route::get('/allUser',[HomeController::class, 'allUser']);
+    Route::get('/allMessage',[MessageController::class, 'index']);
 
-Route::get('/admin/sendMessage',[App\Http\Controllers\HomeController::class, 'sendMessage']);
+    Route::get('/sendMessage',[HomeController::class, 'sendMessage']);
+    Route::post('/saveMessage',[HomeController::class, 'saveMessage']);
+});
+
+
+
 
 
 

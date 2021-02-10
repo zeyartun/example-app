@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Hash;
 
 class HomeController extends Controller
 {
@@ -30,8 +31,15 @@ class HomeController extends Controller
     public function addUser(){
         return view('admin.addUser');
     }
-    public function saveUser(){
-        // return view('admin.allUser');
+    public function saveUser(request $request){ 
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->role = $request->role;
+        $user->save();
+        return redirect(url('/admin/allUser'));
+
     }
     public function allUser(){
         $users = User::all();
@@ -41,7 +49,11 @@ class HomeController extends Controller
         return view('admin.allMessage');
     }
     public function sendMessage(){
-        return view('admin.sendMessage');
+        $users = User::all();
+        return view('admin.sendMessage',compact('users'));
+    }
+    public function saveMessage(request $request){
+        dd($request);
     }
 
 }

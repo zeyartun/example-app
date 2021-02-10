@@ -9,50 +9,45 @@
 
                     <div class="row">
                         <div class="col-12"><h3 class="text-center py-3">Welcome To Zeyar Office</h3></div>
-                        <form action="" method="post">
+                        <form action="/admin/saveMessage" method="post" multiple>
+                          @csrf
                             <div class="mb-3">
                                 <label class="form-label">စာအမှတ်အမှတ်</label>
-                                <input type="text" class="form-control" id="letterId" placeholder="စာအမှတ်အမှတ်">
+                                <input type="text" class="form-control" name="letterId" placeholder="စာအမှတ်အမှတ်" required>
                               </div>
                               <div class="mb-3">
                                 <label  class="form-label">ရက်စွဲ</label>
-                                <input type="date" class="form-control" id="date">
+                                <input type="date" class="form-control" name="date" required>
                               </div>
                               <div class="mb-3">
                                 <label class="form-label">ခေါင်းစဉ်</label>
-                                <input type="text" class="form-control" id="title" placeholder="ခေါင်းစဉ်">
+                                <input type="text" class="form-control" name="title" placeholder="ခေါင်းစဉ်" required>
                               </div>
                               <div class="mb-3">
                                 <label class="form-label">ရည်ညွှန်းစာ</label>
-                                <input type="text" class="form-control" id="copyUser" placeholder="ရည်ညွှန်းစာ">
+                                <input type="text" class="form-control" name="refLetter" placeholder="ရည်ညွှန်းစာ" required>
                               </div>
                               <div class="dropdown mb-3">
                                 <select name="toUser" class="select mb-3 p-2 px-3">
                                     <option selected>ပို့ပေးမည့်သူရွေးပါ</option>
-                                    <option value="volvo">Volvo</option>
-                                    <option value="fiat">Fiat</option>
-                                    <option value="audi">Audi</option>
+                                    @foreach ($users as $user)
+                                    <option value="{{$user->id}}">{{$user->name}}</option>                                        
+                                    @endforeach
                                   </select>
                               </div>
                               <div class="mb-3">
-                                <div class="btn btn-info form-label px-3">ပူးတွဲပါ</div>
+                                <div class="btn btn-info form-label px-3" id="addcopy">ပူးတွဲပို့မည့်သူထည့်ပါ</div>
                               </div>
-                              <div class="dropdown mb-3" id="ccuser">
-                                <select name="ccUser" class="select mb-3 p-2 px-3">
-                                    <option selected>ပူးတွဲ ပို့ပေးမည့်သူရွေးပါ</option>
-                                    <option value="volvo">Volvo</option>
-                                    <option value="fiat">Fiat</option>
-                                    <option value="audi">Audi</option>
-                                  </select>
-                                <a href="#" class="btn btn-danger"> x </a>
-                              </div>
+                              <div id="ccUser">
+
+                              </div>                              
                               <div class="mb-3">
                                 <label class="form-label">အကြောင်းအရာ</label>
-                                <textarea class="form-control" id="message" rows="3"></textarea>
+                                <textarea class="form-control" name="message" rows="3" required></textarea>
                               </div>
                               <div class="mb-3">
                                 <label for="formFile" class="form-label">ဖိုင်များ တွဲ တင်ရန်တင်ရန်</label>
-                                <input class="form-control" type="file" id="formFile">
+                                <input class="form-control" type="file" name="upload[]" type="file" multiple="multiple" required>
                               </div>
                               <div class="mb-3 text-end">
                                 <input type="submit" class="btn btn-success" value="Send">
@@ -64,6 +59,16 @@
         </div>
     </div>
 </div>
+<script>
+  $(document).ready(function(){
+
+    $('#addcopy').click(function(){
+      $("#ccUser").append("<div class='dropdown mb-3' name='ccuser{{$user->id}}' id='ccuser'><select name='ccUser' class='select mb-3 p-2 px-3'><option selected>ပူးတွဲ ပို့ပေးမည့်သူရွေးပါ</option><option value='{{$user->name}}'>{{$user->name}}</option>@foreach ($users as $user)<option value='{{$user->name}}'>{{$user->name}}</option>@endforeach</select><a href='#' class='btn btn-danger' name='ccuserdelete'> x </a></div>");
+      
+      });
+
+  })
+</script>
 @endsection
 
 

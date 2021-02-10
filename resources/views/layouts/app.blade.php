@@ -38,12 +38,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        {{-- <a href="{{url('admin/addUser')}}">Add New Officer</a> --}}
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav">
                         <!-- Authentication Links -->
+
+                        <div class="row">
+                            <div class="col-6"></div>
+                            <div class="col-6"></div>
+                        </div>
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">

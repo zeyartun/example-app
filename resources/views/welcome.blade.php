@@ -27,11 +27,11 @@
                 
                 <h1 class="text-white">Welcome to Zeyar Office</h1>
                 @if (Route::has('login'))
-                <div class="hidden sm:block">
+                <div class="hidden sm:block text-center">
                     @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                        <a href="{{ url('/home') }}" class="btn btn-info w-100 text-sm text-gray-700 underline">Home</a>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
+                        <a href="{{ route('login') }}" class="btn btn-info w-100 text-gray-700 underline">Login</a>
 
                         {{-- @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
