@@ -14,6 +14,7 @@
                               <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">စာအမှတ်အမှတ်</th>
+                                <th scope="col">ပို့ပေးသူ</th>
                                 <th scope="col">ရက်စွဲ</th>
                                 <th scope="col">ခေါင်းစဉ်</th>
                                 <th scope="col">ရည်ညွှန်းစာ</th>
@@ -24,14 +25,17 @@
                               </tr>
                             </thead>
                             <tbody>
-                                @foreach ($messages as $message)                           
+                                @foreach ($messages as $message)
                                     <tr>
                                         <th scope="row">{{$message->id}}</th>
                                         <td>{{$message->letterNo}}</td>
+                                        <td>{{$message->sender_id}}</td>
                                         <td>{{$message->date}}</td>
                                         <td>{{$message->title}}</td>
                                         <td>{{$message->referLetter}}</td>
-                                        <td><span class="badge bg-info">Admin</span></td>
+                                        <td>
+                                            <span class="badge bg-info">{{$message->recipient_user_id}}</span>
+                                        </td>
                                         <td>{{$message->detail}}</td>
                                         <td><a href="#">Download</a></td>
                                       </tr> 

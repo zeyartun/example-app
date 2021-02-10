@@ -38,16 +38,14 @@
                               <div class="mb-3">
                                 <div class="btn btn-info form-label px-3" id="addcopy">ပူးတွဲပို့မည့်သူထည့်ပါ</div>
                               </div>
-                              <div id="ccUser">
-
-                              </div>                              
+                              <div id="ccUser"></div>
                               <div class="mb-3">
                                 <label class="form-label">အကြောင်းအရာ</label>
                                 <textarea class="form-control" name="message" rows="3" required></textarea>
                               </div>
                               <div class="mb-3">
                                 <label for="formFile" class="form-label">ဖိုင်များ တွဲ တင်ရန်တင်ရန်</label>
-                                <input class="form-control" type="file" name="upload[]" type="file" multiple="multiple" required>
+                                <input class="form-control" type="file" name="upload[]" type="file" multiple="multiple">
                               </div>
                               <div class="mb-3 text-end">
                                 <input type="submit" class="btn btn-success" value="Send">
@@ -63,11 +61,12 @@
   $(document).ready(function(){
 
     $('#addcopy').click(function(){
-      $("#ccUser").append("<div class='dropdown mb-3' name='ccuser{{$user->id}}' id='ccuser'><select name='ccUser' class='select mb-3 p-2 px-3'><option selected>ပူးတွဲ ပို့ပေးမည့်သူရွေးပါ</option><option value='{{$user->name}}'>{{$user->name}}</option>@foreach ($users as $user)<option value='{{$user->name}}'>{{$user->name}}</option>@endforeach</select><a href='#' class='btn btn-danger' name='ccuserdelete'> x </a></div>");
-      
-      });
+      $("#ccUser").append("<div class='dropdown mb-3' name='ccuser' id='ccuser'><select name='ccUser' class='select mb-3 p-2 px-3'><option selected>ပူးတွဲ ပို့ပေးမည့်သူရွေးပါ</option>@foreach($users as $user)<option value='{{$user->id}}'>{{$user->name}}</option>@endforeach</select><a class='btn btn-danger m-2' id='ccuserdelete{{$user->id}}' onclick='hide({{$user->id}})'> x </a></div></div> ");
+        
+      });    
 
   })
+
 </script>
 @endsection
 

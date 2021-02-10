@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\message;
 use Hash;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -53,7 +55,23 @@ class HomeController extends Controller
         return view('admin.sendMessage',compact('users'));
     }
     public function saveMessage(request $request){
-        dd($request);
+
+       $addmessage = new message();
+
+       $addmessage->letterNo = $request->letterId;
+       $addmessage->date = $request->date;
+       $addmessage->title = $request->title;
+       $addmessage->referLetter = $request->refLetter;
+       $addmessage->recipient_user_id = $request->toUser;
+       $addmessage->detail = $request->message;
+       $addmessage->files = json_encode($request->upload);
+       $addmessage->sender_id = Auth::User()->id;
+
+       $addmessage->save();
+
+       return redirect()->back()->with('message','Successful Send Message');
+
+
     }
 
 }

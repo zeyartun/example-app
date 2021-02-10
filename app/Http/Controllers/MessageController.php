@@ -45,9 +45,10 @@ class MessageController extends Controller
      * @param  \App\Models\message  $message
      * @return \Illuminate\Http\Response
      */
-    public function show(message $message)
+    public function show($userId)
     {
-        //
+        $messages = message::where('sender_id',$userId)->get();
+        return view('admin.allMessage', compact('messages'));
     }
 
     /**
@@ -56,9 +57,10 @@ class MessageController extends Controller
      * @param  \App\Models\message  $message
      * @return \Illuminate\Http\Response
      */
-    public function edit(message $message)
+    public function receive($userId)
     {
-        //
+        $messages = message::where('recipient_user_id',$userId)->get();
+        return view('admin.allMessage', compact('messages'));
     }
 
     /**

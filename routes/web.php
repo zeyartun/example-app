@@ -33,6 +33,10 @@ Route::group(['middleware' => 'auth','prefix' => 'admin'],function(){
 
     Route::get('/sendMessage',[HomeController::class, 'sendMessage']);
     Route::post('/saveMessage',[HomeController::class, 'saveMessage']);
+
+    Route::get('/userShowMessage/{userId}',[MessageController::class, 'show']);
+    Route::get('/userReceiveMessage/{userId}',[MessageController::class, 'receive']);
+
 });
 
 

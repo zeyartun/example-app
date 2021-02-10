@@ -15,5 +15,8 @@ class message extends Model
         'title',
         'detail',
         'referLetter',
+        'sender_id',
+        'ccsender_id',
+        'files',
     ];
 }

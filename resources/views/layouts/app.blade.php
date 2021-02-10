@@ -34,7 +34,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+                
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
@@ -79,6 +79,15 @@
                 </div>
             </div>
         </nav>
+
+        <div class="container mt-2">
+            @if($message = Session::get('message'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{$message}}</strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            @endif
+        </div>
 
         <main class="py-4">
             @yield('content')
