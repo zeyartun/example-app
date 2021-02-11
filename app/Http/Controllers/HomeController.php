@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\message;
+use App\Models\copyUser;
 use Hash;
 use Auth;
 
@@ -69,8 +70,23 @@ class HomeController extends Controller
 
        $addmessage->save();
 
+       $get_ccuser = $request->ccUser;
+       $count_ccuser = count($get_ccuser);
+
+       if($count_ccuser > 0 ){
+           $db_ccUser = new copyUser();
+           for($i=0; $i < $count_ccuser; $i++){
+
+               $db_ccUser->copyUserId = $get_ccuser[$i+1];
+               $db_ccUser->messageId = $addmessage->id;
+
+               $db_ccUser->save();
+           }
+       }
+
        return redirect()->back()->with('message','Successful Send Message');
 
+    // dd($get_ccuser);
 
     }
 

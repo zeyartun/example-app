@@ -57,15 +57,24 @@
         </div>
     </div>
 </div>
+
+
 <script>
   $(document).ready(function(){
-
+  var i =0;
     $('#addcopy').click(function(){
-      $("#ccUser").append("<div class='dropdown mb-3' name='ccuser' id='ccuser'><select name='ccUser' class='select mb-3 p-2 px-3'><option selected>ပူးတွဲ ပို့ပေးမည့်သူရွေးပါ</option>@foreach($users as $user)<option value='{{$user->id}}'>{{$user->name}}</option>@endforeach</select><a class='btn btn-danger m-2' id='ccuserdelete{{$user->id}}' onclick='hide({{$user->id}})'> x </a></div></div> ");
+      ++i;
+      $("#ccUser").append('<div class="dropdown mb-3" id="ccUser'+i+'"><select name="ccUser['+i+']" class="select mb-3 p-2 px-3"><option selected>ပူးတွဲ ပို့ပေးမည့်သူရွေးပါ</option>@foreach($users as $user)<option value="{{$user->id}}">{{$user->name}}</option>@endforeach</select><a class="btn btn-danger m-2" id="ccuserdelete'+i+'" onclick="hide('+i+')"> x </a></div></div> ');
         
-      });    
+      });
+  })    
 
-  })
+  function hide(j){
+       let y = document.getElementById(`ccUser${j}`);
+       y.innerHTML=" ";
+
+    }
+  
 
 </script>
 @endsection

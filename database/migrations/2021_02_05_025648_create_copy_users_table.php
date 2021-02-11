@@ -16,7 +16,6 @@ class CreateCopyUsersTable extends Migration
         Schema::create('copy_users', function (Blueprint $table) {
             $table->id();
             $table->integer('messageId');
-            $table->integer('recipientUserId');
             $table->integer('copyUserId');
             $table->timestamps();
         });
