@@ -21,7 +21,7 @@ class CreateMessagesTable extends Migration
             $table->string('detail');
             $table->string('referLetter');
             $table->integer('sender_id');
-            $table->string('recipient_user_id');
+            $table->integer('recipient_user_id');
             $table->string('files');
             $table->timestamps();
 

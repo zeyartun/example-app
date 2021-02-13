@@ -14,11 +14,12 @@
                               <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">စာအမှတ်အမှတ်</th>
-                                <th scope="col">ပို့ပေးသူ</th>
                                 <th scope="col">ရက်စွဲ</th>
                                 <th scope="col">ခေါင်းစဉ်</th>
                                 <th scope="col">ရည်ညွှန်းစာ</th>
-                                <th scope="col">ပူးတွဲပို့ပေးသူများ</th>
+                                <th scope="col">မှ</th>
+                                <th scope="col">သို့</th>
+                                <th scope="col">ပူးတွဲ</th>
                                 <th scope="col">အကြောင်းအရာ</th>
                                 <th scope="col">ဖိုင်များ</th>
 
@@ -29,10 +30,11 @@
                                     <tr>
                                         <th scope="row">{{$message->id}}</th>
                                         <td>{{$message->letterNo}}</td>
-                                        <td>{{$message->sender_id}}</td>
                                         <td>{{$message->date}}</td>
                                         <td>{{$message->title}}</td>
                                         <td>{{$message->referLetter}}</td>
+                                        <td>{{$message->sender_id}}</td>
+                                        <td>{{$message->recipient_user_id}}</td>
                                         <td>
                                             <span class="badge bg-info">{{$message->recipient_user_id}}</span>
                                         </td>
