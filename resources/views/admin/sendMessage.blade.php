@@ -30,9 +30,12 @@
                               <div class="dropdown mb-3">
                                 <select name="toUser" class="select mb-3 p-2 px-3">
                                     <option selected>ပို့ပေးမည့်သူရွေးပါ</option>
+                
                                     @foreach ($users as $user)
                                     <option value="{{$user->id}}">{{$user->name}}</option>                                        
                                     @endforeach
+
+                                    
                                   </select>
                               </div>
                               <div class="mb-3">

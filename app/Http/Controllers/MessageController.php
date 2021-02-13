@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\message;
 use Illuminate\Http\Request;
+use App\Models\message_user;
 
 class MessageController extends Controller
 {
@@ -48,7 +49,8 @@ class MessageController extends Controller
     public function show($userId)
     {
         $messages = message::where('sender_id',$userId)->get();
-        return view('admin.allMessage', compact('messages'));
+        $ccmessages = message_user::where('user_id',$userId)->get();
+        return view('admin.allMessage', compact('messages','ccmessages'));
     }
 
     /**

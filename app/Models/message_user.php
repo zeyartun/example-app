@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class copyUser extends Model
+class message_user extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'messageId',
-        'recipientUserId',
-        'copyUserId',
+        'message_id',
+        'user_id',
     ];
 }

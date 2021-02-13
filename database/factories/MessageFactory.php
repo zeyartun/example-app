@@ -27,9 +27,9 @@ class MessageFactory extends Factory
             'date' => now(),
             'title' => $this->faker->text,
             'detail' => $this->faker->text,
-            'referLetter' => 'Admin',
-            'recipient_user_id'=> json_encode(array(1,2,3,4)),
-            'sender_id'=> rand(1,3),
+            'referLetter' => $this->faker->name,
+            'recipient_user_id'=> rand(1,10),
+            'sender_id'=> rand(1,10),
             'files'=>json_encode(array('a.jpg','b.jpg','c.jpg')),
 
         ];
