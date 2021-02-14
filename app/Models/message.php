@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class message extends Model
 {
@@ -19,4 +20,14 @@ class message extends Model
         'ccsender_id',
         'files',
     ];
+
+    public function users()
+    {
+        return $this->belongsTo(App\Models\User::class,'sender_id');
+    }
+    
+
+
+
+    
 }
