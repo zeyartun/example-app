@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\message;
-use App\Models\message_user;
+use App\Models\Message;
+use App\Models\MessageUser;
 use Hash;
 use Auth;
 
@@ -57,7 +57,7 @@ class HomeController extends Controller
     }
     public function saveMessage(request $request){
 
-       $addmessage = new message();
+       $addmessage = new Message();
 
        $addmessage->letterNo = $request->letterId;
        $addmessage->date = $request->date;
@@ -65,17 +65,22 @@ class HomeController extends Controller
        $addmessage->referLetter = $request->refLetter;
        $addmessage->recipient_user_id = $request->toUser;
        $addmessage->detail = $request->message;
-       $addmessage->files = json_encode($request->upload);
        $addmessage->sender_id = Auth::User()->id;
 
        $addmessage->save();
+
+       if($request->hasFile('upload')){
+           dd($request->upload);
+           $addmessage->files = json_encode($request->upload);
+       }
+
 
        $get_ccUser = $request->ccUser;
        $count_ccUser = count($get_ccUser);
 
        if($count_ccUser > 0 ){
            for($i=0; $i < $count_ccUser; $i++){
-               $db_ccUser = new message_user();
+               $db_ccUser = new MessageUser();
 
                $db_ccUser->user_id = $get_ccUser[$i+1];
                $db_ccUser->message_id = $addmessage->id;

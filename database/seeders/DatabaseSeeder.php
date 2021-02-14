@@ -15,6 +15,6 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory(10)->create();
         \App\Models\message::factory(20)->create();
-        \App\Models\message_user::factory(30)->create();
+        \App\Models\MessageUser::factory(30)->create();
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\message;
+use App\Models\Message;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -13,7 +13,7 @@ class MessageFactory extends Factory
      *
      * @var string
      */
-    protected $model = message::class;
+    protected $model = Message::class;
 
     /**
      * Define the model's default state.

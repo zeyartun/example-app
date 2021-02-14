@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 
-class message extends Model
+class Message extends Model
 {
     use HasFactory;
 
@@ -23,7 +23,7 @@ class message extends Model
 
     public function users()
     {
-        return $this->belongsTo(App\Models\User::class,'sender_id');
+        return $this->belongsTo(User::class);
     }
     
 
