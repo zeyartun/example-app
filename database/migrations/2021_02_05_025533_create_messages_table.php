@@ -13,7 +13,7 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
+        Schema::create('Messages', function (Blueprint $table) {
             $table->id();
             $table->string('letterNo');
             $table->string('date');
@@ -35,6 +35,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messages');
+        Schema::dropIfExists('Messages');
     }
 }
