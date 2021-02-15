@@ -23,7 +23,7 @@ class message extends Model
 
     public function users()
     {
-        return $this->belongsTo(App\Models\User::class,'sender_id');
+        return $this->belongsTo(User::class,'sender_id');
     }
     
 
