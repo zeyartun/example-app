@@ -33,10 +33,16 @@
                                         <td>{{$message->date}}</td>
                                         <td>{{$message->title}}</td>
                                         <td>{{$message->referLetter}}</td>
-                                        <td>{{$message->sender_id}}</td>
-                                        <td>{{$message->recipient_user_id}}</td>
                                         <td>
-                                            <span class="badge bg-info">{{$message->recipient_user_id}}</span>
+                                                {{$message->sender->name}}
+                                        </td>
+                                        <td>
+                                            {{$message->recipient->name}}
+                                        </td>
+                                        <td>
+                                            @foreach ($message->ccusers as $ccuser)                                                
+                                            <span class="badge bg-info">{{$ccuser->user->name}}</span>
+                                            @endforeach
                                         </td>
                                         <td>{{$message->detail}}</td>
                                         <td><a href="#">Download</a></td>

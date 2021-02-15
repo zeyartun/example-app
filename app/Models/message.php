@@ -21,9 +21,19 @@ class Message extends Model
         'files',
     ];
 
-    public function users()
+    public function sender()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'sender_id');
+    }
+
+    public function recipient()
+    {
+        return $this->belongsTo(User::class,'recipient_user_id');
+    }
+
+    public function ccusers()
+    {
+        return $this->hasMany(MessageUser::class);
     }
     
 

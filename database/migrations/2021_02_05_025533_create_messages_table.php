@@ -20,10 +20,14 @@ class CreateMessagesTable extends Migration
             $table->string('title');
             $table->string('detail');
             $table->string('referLetter');
-            $table->integer('sender_id');
-            $table->integer('recipient_user_id');
+            $table->foreignId('sender_id')->constrained('users');
+            $table->foreignId('recipient_user_id')->constrained('users');
             $table->string('files')->nullable();
             $table->timestamps();
+
+            // $table->foreign('sender_id')->references('id')->on('users');
+            // $table->foreign('recipient_user_id')->references('id')->on('users');
+            
 
         });
     }

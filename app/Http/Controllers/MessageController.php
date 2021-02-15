@@ -53,7 +53,7 @@ class MessageController extends Controller
     {
         $userId = Auth::user()->id;
         $messages = Message::where('sender_id',$userId)->get();
-        // dd($messages);
+        // dd($messages[0]->sender->name);
         return view('admin.allMessage', compact('messages'));
     }
 
