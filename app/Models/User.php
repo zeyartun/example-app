@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\message;
+use App\Models\Message;
 
 
 class User extends Authenticatable
@@ -26,7 +26,7 @@ class User extends Authenticatable
 
     public function messages()
     {
-        return $this->hasMany(message::class);
+        return $this->hasMany(Message::class);
     }
 
     /**

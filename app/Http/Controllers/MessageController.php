@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\message;
+use App\Models\Message;
 use App\Models\User;
 
 use Illuminate\Http\Request;
-use App\Models\message_user;
+// use App\Models\message_user;
 use Auth;
 
 class MessageController extends Controller
@@ -18,7 +18,7 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $messages = message::all();
+        $messages = Message::all();
         return view('admin.allMessage', compact('messages'));
     }
 
@@ -52,8 +52,8 @@ class MessageController extends Controller
     public function show()
     {
         $userId = Auth::user()->id;
-        $messages = message::where('sender_id',$userId)->get();
-        dd($messages);
+        $messages = Message::where('sender_id',$userId)->get();
+        // dd($messages);
         return view('admin.allMessage', compact('messages'));
     }
 
@@ -66,7 +66,7 @@ class MessageController extends Controller
     public function receive()
     {
         $userId = Auth::user()->id;
-        $messages = message::where('recipient_user_id',$userId)->get();
+        $messages = Message::where('recipient_user_id',$userId)->get();
         return view('admin.allMessage', compact('messages'));
     }
 

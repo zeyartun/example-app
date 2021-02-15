@@ -22,7 +22,7 @@ class CreateMessagesTable extends Migration
             $table->string('referLetter');
             $table->integer('sender_id');
             $table->integer('recipient_user_id');
-            $table->string('files');
+            $table->string('files')->nullable();
             $table->timestamps();
 
         });

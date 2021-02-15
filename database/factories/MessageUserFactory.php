@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\message_user;
+use App\Models\MessageUser;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class message_userFactory extends Factory
+class MessageUserFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = message_user::class;
+    protected $model = MessageUser::class;
 
     /**
      * Define the model's default state.
